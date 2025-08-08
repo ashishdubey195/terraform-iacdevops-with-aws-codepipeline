@@ -1,14 +1,14 @@
 # ACM Module - To create and Verify SSL Certificates
 module "acm" {
   source  = "terraform-aws-modules/acm/aws"
-  #version = "2.14.0"
-  version = "3.0.0"
+  #version = "6.1.0"
+  version = ""
 
   domain_name  = trimsuffix(data.aws_route53_zone.mydomain.name, ".")
   zone_id      = data.aws_route53_zone.mydomain.zone_id 
 
   subject_alternative_names = [
-    #"*.devopsincloud.com"
+    #"*.popto.store"
     var.dns_name 
   ]
   tags = local.common_tags
